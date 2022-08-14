@@ -1,17 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
- */
-
 package com.mycompany.exp1a;
 
-/**
- *
- * @author vineeth
- */
+import java.util.Scanner;
+
 public class Exp1a {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        //Enter the total number of stduents
+        System.out.println("Enter the total number of students: ");
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        
+        //Create n objects
+        Student[] st=new Student[n];
+        for(int i=0;i<n;i++)
+            st[i] = new Student();
+        
+        //Read the n Student information
+        for(int i=0;i<n;i++){
+            System.out.println("Enter the USN, Name, Branch, Phno for Student "+(i+1));
+            st[i].read();
+        }
+        
+        //Display the Student information
+        System.out.println("\nUSN\tNAME\tBRANCH\tPHNO");
+        for(int i=0;i<n;i++)
+            st[i].display();
     }
 }
